@@ -1,0 +1,59 @@
+---
+title: "Sample Parameterized Report"
+format: pdf
+---
+
+```{python}
+#| tags: [parameters]
+species = 'Iris-setosa'
+```
+
+```{python}
+#| echo: false
+import pandas as pd
+# Dynamic variable to be iterated over. Has default value assigned.
+
+
+# Import the starting dataset
+col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Species']
+iris = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data',names = col_names)
+
+# Create custom dataset for our reporting
+iris_c = iris[iris['Species'] ==  species]
+```
+
+This is an example of a parameterized report using Quarto. We will generate three different reports for Iris species using a single Quarto file. 
+
+First we will take a look at a histogram chart to understand the distribution of sepal lengths for the selected species.
+```{python}
+#| echo: false
+import seaborn as sns
+import matplotlib.pyplot as plt
+plt.hist(iris_c['Sepal_Length'], bins=7)
+plt.title('Sepal Length for {}'.format(species))
+plt.show()
+```
+
+Now we will view a heatmap to understand the correlations between columns for this species. We will also display the code for anyone who wants to see how this was generated.
+```{python}
+#| echo: true
+sns.heatmap(iris_c.corr(method='pearson'), annot = True)
+plt.title('Heatmap for {}'.format(species))
+plt.show()
+```
+
+Lastly we will look at a boxplot for each column in the dataset.
+```{python}
+plt.figure(figsize=(11,11))
+
+plt.subplot(221)
+sns.boxplot(x='Species', y='Sepal_Length', data=iris_c)
+plt.subplot(222)
+sns.boxplot(x='Species', y='Sepal_Width', data=iris_c)
+plt.subplot(223)
+sns.boxplot(x='Species', y='Petal_Length', data=iris_c)
+plt.subplot(224)
+sns.boxplot(x='Species', y='Petal_Width', data=iris_c)
+plt.show()
+
+```
