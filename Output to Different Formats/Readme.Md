@@ -1,4 +1,4 @@
-# Outputting to Different File Formats
+# Outputting to Different File Formats Explainer
 
 Quarto is designed so that a single file can output to different file formats. These formats include HTML, PDF, Word, PowerPoint, Epub, and others. This is useful as it is often neccessary that the same content will be displayed in different mediums based on the audience. For example, assuming both stakeholders and audit get the same report, one may require a powerpoint and the other a pdf. Instead of maintaining separate processes or files we can instead maintain a single Quarto file and output to both formats.
 
