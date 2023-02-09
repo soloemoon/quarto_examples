@@ -1,4 +1,5 @@
 #Outputting to Different File Formats
+
 Quarto is designed so that a single file can output to different file formats. These formats include HTML, PDF, Word, PowerPoint, Epub, and others. This is useful as it is often neccessary that the same content will be displayed in different mediums based on the audience. For example, assuming both stakeholders and audit get the same report, one may require a powerpoint and the other a pdf. Instead of maintaining separate processes or files we can instead maintain a single Quarto file and output to both formats.
 
 Changing the output format of a Quarto file can be done manually using in the YAML header. My preferred method is by using shell script, which has the added benefit of executing the Quarto file in addition to altering the output format. This can be easily done with the following shell script:
