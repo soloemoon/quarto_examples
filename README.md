@@ -4,7 +4,7 @@ Examples of building reports in Quarto!
 ## Simple PDF Report
 Example of a simple PDF report including programmatic tables and plots.
 
-## Resume Template
+## Advanced PDF Formatting
 Showcases how LaTex can be used to create highly customized pdfs.
 
 ## Parameterized Report
